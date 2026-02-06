@@ -1,0 +1,4 @@
+session_id,start_time,end_time,label
+9,0,60,crawl
+18,0,60,kneelingshot
+24,0,50,standby

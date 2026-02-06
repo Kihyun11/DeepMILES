@@ -3,9 +3,9 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-import config as cfg  # Import your settings
+import configs as cfg  # Import your settings
 from model import DeepConvLSTM
-from datasets import IMUDataset
+from dataset import IMUDataset
 
 def train():
     # 1. Setup Device

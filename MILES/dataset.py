@@ -35,7 +35,7 @@ class IMUDataset(Dataset):
             raw_df = pd.read_csv(file_path)
             
             # 3. Trim based on start_time and end_time
-            mask = (raw_df['elapsed time'] >= row['start_time']) & (raw_df['elapsed time'] <= row['end_time'])
+            mask = (raw_df['seconds_elapsed'] >= row['start_time']) & (raw_df['seconds_elapsed'] <= row['end_time'])
             trimmed_data = raw_df.loc[mask, ['acc_x', 'acc_y', 'acc_z', 'gyro_x', 'gyro_y', 'gyro_z']].values
             
             # 4. Sliding Window Extraction

@@ -1,35 +1,35 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def analyze_imu_data(file_path):
-    # Load the dataset
-    # Assuming the first row contains the headers you mentioned
+def analyze_imu_data_stacked(file_path):
     df = pd.read_csv(file_path)
+    t = df["seconds_elapsed"]
 
-    # Create the figure with two subplots (Accelerometer and Gyroscope)
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8), sharex=True)
-    
-    # Plot Accelerometer Data
-    ax1.plot(df['elapsed time'], df['acc_x'], label='Acc X', alpha=0.7)
-    ax1.plot(df['elapsed time'], df['acc_y'], label='Acc Y', alpha=0.7)
-    ax1.plot(df['elapsed time'], df['acc_z'], label='Acc Z', alpha=0.7)
-    ax1.set_title('Accelerometer Data')
-    ax1.set_ylabel('m/s^2 (or g)')
-    ax1.legend(loc='upper right')
-    ax1.grid(True, linestyle='--', alpha=0.6)
+    channels = [
+        ("acc_x", "Acc X", "m/s² (or g)"),
+        ("acc_y", "Acc Y", "m/s² (or g)"),
+        ("acc_z", "Acc Z", "m/s² (or g)"),
+        ("gyro_x", "Gyro X", "deg/s (or rad/s)"),
+        ("gyro_y", "Gyro Y", "deg/s (or rad/s)"),
+        ("gyro_z", "Gyro Z", "deg/s (or rad/s)"),
+    ]
 
-    # Plot Gyroscope Data
-    ax2.plot(df['elapsed time'], df['gyro_x'], label='Gyro X', alpha=0.7)
-    ax2.plot(df['elapsed time'], df['gyro_y'], label='Gyro Y', alpha=0.7)
-    ax2.plot(df['elapsed time'], df['gyro_z'], label='Gyro Z', alpha=0.7)
-    ax2.set_title('Gyroscope Data')
-    ax2.set_ylabel('deg/s (or rad/s)')
-    ax2.set_xlabel('Elapsed Time (s)')
-    ax2.legend(loc='upper right')
-    ax2.grid(True, linestyle='--', alpha=0.6)
+    fig, axes = plt.subplots(len(channels), 1, figsize=(12, 12), sharex=True)
 
+    for ax, (col, title, ylab) in zip(axes, channels):
+        if col not in df.columns:
+            raise KeyError(f"Missing column '{col}'. Available columns: {list(df.columns)}")
+
+        ax.plot(t, df[col], alpha=0.8)
+        ax.set_title(title)
+        ax.set_ylabel(ylab)
+        ax.grid(True, linestyle="--", alpha=0.6)
+
+    axes[-1].set_xlabel("Elapsed Time (s)")
     plt.tight_layout()
     plt.show()
 
-# Replace 'data.csv' with your actual filename
-analyze_imu_data('data.csv')
+if __name__ == "__main__":
+    analyze_imu_data_stacked(
+        r"C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\walk5\walk5_acc_gyro.csv"
+    )

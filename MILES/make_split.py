@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 
 def make_split(actions_csv_path, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
     # 1. Load the trimming and labeling info
-    df = pd.read_csv(action_labels_csv_path)
+    df = pd.read_csv(actions_csv_path)
     
     # 2. Identify unique sessions to ensure a clean split
     unique_sessions = df['session_id'].unique()
@@ -37,4 +37,4 @@ def make_split(actions_csv_path, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1)
     print(f"Train: {len(train_split)} segments | Val: {len(val_split)} segments | Test: {len(test_split)} segments")
 
 # Usage:
-# make_split('actions.csv')
+make_split("C:/Users/User/Documents/GitHub/Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC/action_labels.csv")
