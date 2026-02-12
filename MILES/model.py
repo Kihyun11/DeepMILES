@@ -25,17 +25,40 @@ class DeepConvLSTM(nn.Module):
         self.dropout = nn.Dropout(0.5)
         self.classifier = nn.Linear(lstm_units, num_classes)
 
-    def forward(self, x):
-        # x shape: (batch, 1, seq_len, 6) -> 6 sensors (acc_x,y,z, gyro_x,y,z)
-        x = self.conv_block(x)
+    # def forward(self, x):
+    #     # x shape: (batch, 1, seq_len, 6) -> 6 sensors (acc_x,y,z, gyro_x,y,z)
+    #     x = self.conv_block(x)
         
-        # Reshape for LSTM: (batch, new_seq_len, conv_kernels * 6)
+    #     # Reshape for LSTM: (batch, new_seq_len, conv_kernels * 6)
+    #     batch, kernels, seq_len, sensors = x.size()
+    #     x = x.permute(0, 2, 1, 3).contiguous()
+    #     x = x.view(batch, seq_len, kernels * sensors)
+        
+    #     x, (h_n, c_n) = self.lstm(x)
+        
+    #     # We take the output of the last time step
+    #     x = self.dropout(x[:, -1, :])
+    #     return self.classifier(x)
+    
+    def forward(self, x, return_embeddings: bool = False):
+        """
+        x: (batch, 1, seq_len, 6)
+        return_embeddings:
+          - False: returns logits (batch, num_classes)
+          - True:  returns embedding vector (batch, lstm_units)
+        """
+        x = self.conv_block(x)
+
         batch, kernels, seq_len, sensors = x.size()
         x = x.permute(0, 2, 1, 3).contiguous()
         x = x.view(batch, seq_len, kernels * sensors)
-        
-        x, (h_n, c_n) = self.lstm(x)
-        
-        # We take the output of the last time step
-        x = self.dropout(x[:, -1, :])
-        return self.classifier(x)
+
+        x, _ = self.lstm(x)
+
+        emb = x[:, -1, :]          # (batch, lstm_units)
+        emb = self.dropout(emb)    # dropout disabled automatically in eval()
+
+        if return_embeddings:
+            return emb
+
+        return self.classifier(emb)
