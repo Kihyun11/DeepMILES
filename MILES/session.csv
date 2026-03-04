@@ -29,3 +29,9 @@ session_id,file_path,soldier_id,label,fs_hz,notes
 028,C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\walk3\walk3_acc_gyro.csv,S01,walk,100,Third walk session
 029,C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\walk4\walk4_acc_gyro.csv,S01,walk,100,Forth walk session
 030,C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\walk5\walk5_acc_gyro.csv,S01,walk,100,Fifth walk session
+031,C:/Users/User/Documents/GitHub/Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC/dataset/bomb_test/bomb_test_acc_gyro.csv,S02,bomb,100,Bomb test session
+032,C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\crawl_test\crawl_test_acc_gyro.csv,S02,crawl,100,Crawl test session
+033,C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\hide_test\hide_test_acc_gyro.csv,S02,hide,100,Hide test session
+034,C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\kneelingshot_test\kneelingshot_test_acc_gyro.csv,S02,kneelingshot,100,Kneelingshot test session
+035,C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\standby_test\standby_test_acc_gyro.csv,S02,standby,100,Standby test session
+036,C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\walk_test\walk_test_acc_gyro.csv,S02,walk,100,Walk test session 

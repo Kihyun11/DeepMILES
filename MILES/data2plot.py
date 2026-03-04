@@ -31,5 +31,5 @@ def analyze_imu_data_stacked(file_path):
 
 if __name__ == "__main__":
     analyze_imu_data_stacked(
-        r"C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\walk5\walk5_acc_gyro.csv"
+        r"C:\Users\User\Documents\GitHub\Deep-MILES-Personalized-Performance-Evaluation-AI-Model-for-Next-Gen-KCTC\dataset\bomb_test\bomb_test_acc_gyro.csv"
     )

@@ -1,4 +1,7 @@
 session_id,start_time,end_time,label
-10,0,60,crawl
-16,0,60,kneelingshot
-28,0,60,walk
+031,10,70,bomb
+032,10,60,crawl
+033,10,60,hide
+034,10,60,kneelingshot
+035,10,60,standby
+036,0,60,walk

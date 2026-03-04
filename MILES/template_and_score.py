@@ -229,7 +229,7 @@ def score_labeled_sessions_against_templates(
 # -----------------------------
 def run_goal_c(
     metadata_train: str = "metadata_train.csv",
-    metadata_eval: str = "metadata_val.csv",  # set to metadata_test.csv when needed
+    metadata_eval: str = "metadata_test.csv",  # set to metadata_test.csv when needed
     session_csv: str = "session.csv",
     model_path: str = None,                   # None => cfg.MODEL_SAVE_PATH in emb_ext.py
     out_csv: str = "scores_eval.csv",
@@ -300,7 +300,7 @@ if __name__ == "__main__":
     # Change metadata_eval to "metadata_test.csv" for test scoring
     run_goal_c(
         metadata_train="metadata_train.csv",
-        metadata_eval="metadata_val.csv",
+        metadata_eval="metadata_test.csv",
         session_csv="session.csv",
         out_csv="scores_val.csv",
     )
