@@ -8,7 +8,9 @@ DeepMILES is a deep learning framework for **Human Activity Recognition (HAR)** 
 
 ## Framework Overview
 
-![DeepMILES Framework](figure/DeepMILES_framework.jpg)
+<p align="center">
+  <img src="figure/DeepMILES_framework.jpg" width="80%">
+</p>
 
 The pipeline consists of five stages:
 
@@ -24,12 +26,12 @@ The pipeline consists of five stages:
 
 | Label | Description |
 |---|---|
-| `bomb` | Bomb placement |
+| `bomb` | Prone action |
 | `crawl` | Low crawling |
-| `hide` | Defensive hiding position |
+| `hide` | Cover and concealment |
 | `kneelingshot` | Kneeling rifle shot |
 | `standby` | Standing alert position |
-| `walk` | Walking |
+| `walk` | Tactical footwork |
 
 ---
 
