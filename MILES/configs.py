@@ -14,7 +14,7 @@ INPUT_CHANNELS = 6  # acc_x,y,z + gyro_x,y,z
 # Training Hyperparameters
 BATCH_SIZE = 32
 LEARNING_RATE = 0.001
-EPOCHS = 30
+EPOCHS = 150
 DROPOUT = 0.5
 
 # Model Architecture
